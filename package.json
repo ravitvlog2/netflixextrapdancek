@@ -1,0 +1,28 @@
+{
+  "name": "netflixextrapdancek",
+  "version": "1.0.0",
+  "description": "extrap imei xiaomi dan langsung cek ke API netflix",
+  "main": "run.js",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "fs": "^0.0.1-security",
+    "node-fetch": "^2.6.1",
+    "random": "^2.2.0",
+    "readline-sync": "^1.4.10",
+    "unique-random": "^2.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ravitvlog2/netflixextrapdancek.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ravitvlog2/netflixextrapdancek/issues"
+  },
+  "homepage": "https://github.com/ravitvlog2/netflixextrapdancek#readme"
+}

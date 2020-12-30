@@ -1,8 +1,11 @@
 const fetch = require('node-fetch');
-var fs = require('fs');
+const fs = require('fs');
 const uniqueRandom = require('unique-random');
 const random = uniqueRandom(0, 9);
-var readlineSync = require('readline-sync');
+const readlineSync = require('readline-sync');
+const chalk = require('chalk');
+const acak = require('random');
+
 console.log(`
     ██╗      █████╗ ███╗   ███╗██████╗ ██╗   ██╗██╗██╗  ██╗
     ██║     ██╔══██╗████╗ ████║██╔══██╗██║   ██║██║██║ ██╔╝
@@ -12,11 +15,13 @@ console.log(`
     ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═╝
                                                        
 `)
-var usernames = readlineSync.question('\n\n\n ENTER UNTUK GASS BOS..  ');
-console.log(usernames+' GASSS......')
+var usernames = readlineSync.question(`\n\n\n ENTER UNTUK GASS BOS..  `);
+var uuid = `ab2d-e${acak.int(10, 99)}1-i${acak.int(10, 99)}k-a${acak.int(100, 999)}`;
+var capcay = readlineSync.question(`\nInput Capcay Link https://hd.c.mi.com/my/eventapi/api/aptcha/index?type=netflix&uid=${uuid} \n\ncapcay : `);
+console.log('GASSS......')
 
 const imeichecker = (imeix) => new Promise((resolve, reject) => {
-    fetch(`https://hd.c.mi.com/my/eventapi/api/netflix/gettoken?uid=80d5-2dca-f7e1-d969&vcode=fzn9&imei=${imeix}`, {
+    fetch(`https://hd.c.mi.com/my/eventapi/api/netflix/gettoken?uid=${uuid}&vcode=${capcay}&imei=${imeix}`, {
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36',
@@ -55,10 +60,11 @@ const imeichecker = (imeix) => new Promise((resolve, reject) => {
         if(detailItems.info =='vcode is expired.')
         {
             console.log(i+' | ' + hasil+' | ' + imeix)
-            
-            
-        }
-        else{
+        } else if(detailItems.info =='invalied imei') {
+            console.log(i+' | ' + hasil+' | ' + imeix)
+        } else if(detailItems.info =='invalied sales country') {
+            console.log(i+' | ' + hasil+' | ' + imeix)
+        } else {
             console.log(chalk.green(i+' => BELUM DIGUNAKAN ' + imeix))
             console.log(chalk.green(hasil));
 
