@@ -2,7 +2,18 @@ const fetch = require('node-fetch');
 var fs = require('fs');
 const uniqueRandom = require('unique-random');
 const random = uniqueRandom(0, 9);
-
+var readlineSync = require('readline-sync');
+console.log(`
+    ██╗      █████╗ ███╗   ███╗██████╗ ██╗   ██╗██╗██╗  ██╗
+    ██║     ██╔══██╗████╗ ████║██╔══██╗██║   ██║██║██║ ██╔╝
+    ██║     ███████║██╔████╔██║██████╔╝██║   ██║██║█████╔╝ 
+    ██║     ██╔══██║██║╚██╔╝██║██╔══██╗██║   ██║██║██╔═██╗ 
+    ███████╗██║  ██║██║ ╚═╝ ██║██████╔╝╚██████╔╝██║██║  ██╗
+    ╚══════╝╚═╝  ╚═╝╚═╝     ╚═╝╚═════╝  ╚═════╝ ╚═╝╚═╝  ╚═╝
+                                                       
+`)
+var usernames = readlineSync.question('\n\n\n ENTER UNTUK GASS BOS..  ');
+console.log(usernames+' GASSS......')
 
 const imeichecker = (imeix) => new Promise((resolve, reject) => {
     fetch(`https://hd.c.mi.com/my/eventapi/api/netflix/gettoken?uid=80d5-2dca-f7e1-d969&vcode=fzn9&imei=${imeix}`, {
@@ -34,9 +45,9 @@ const imeichecker = (imeix) => new Promise((resolve, reject) => {
 (async () => {
     var readMe = 0;
     
-    for (let i = 0; i < 10000000000; i++) {
+    for (let i = 0; i < 10000000; i++) {
         readMe++
-        var imeix = '866228053' + random() + random() + random() + random() + random() + random();    
+        var imeix = '86622805363' + random() + random() + random() + random();    
         const detailItems = await imeichecker(imeix);
         // console.log(readMe[i])
         // console.log(detailItems.info)
@@ -44,7 +55,10 @@ const imeichecker = (imeix) => new Promise((resolve, reject) => {
         if(detailItems.info =='vcode is expired.')
         {
             console.log(i+' | ' + hasil+' | ' + imeix)
-
+            fs.appendFile('HASIL.txt', hasil + ' | ' + imeix + '\n', function (err) {
+                if (err) throw err;
+                console.log('Saved!');
+            });
             
         }
         else{
