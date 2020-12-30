@@ -55,10 +55,7 @@ const imeichecker = (imeix) => new Promise((resolve, reject) => {
         if(detailItems.info =='vcode is expired.')
         {
             console.log(i+' | ' + hasil+' | ' + imeix)
-            fs.appendFile('HASIL.txt', hasil + ' | ' + imeix + '\n', function (err) {
-                if (err) throw err;
-                console.log('Saved!');
-            });
+            
             
         }
         else{
